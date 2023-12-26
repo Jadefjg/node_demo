@@ -1,4 +1,3 @@
-[https://blog.csdn.net/2301_76809965/article/details/133033006?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-133033006-blog-112026224.235%5Ev39%5Epc_relevant_3m_sort_dl_base3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EYuanLiJiHua%7EPosition-2-133033006-blog-112026224.235%5Ev39%5Epc_relevant_3m_sort_dl_base3&utm_relevant_index=5]
 
 [https://github.com/Traderxue/node-demo/blob/main/app.js]
 
@@ -9,3 +8,14 @@
 
 
 # 2、创建数据库表未完成node项目如何创建数据库表
+
+
+# 3、node 后端 api 项目开发步骤思路：
+1. 创建项目\
+   npm init\
+   npm install express \
+   npm app.js
+2. 数据库 - 模型的创建
+3. router_handler : 创建业务逻辑
+4. router : 创建路由
+5. app.js : 配置地址

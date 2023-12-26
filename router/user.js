@@ -13,5 +13,6 @@ router.post('/register',userHandler.regUser)
 router.post('/login',userHandler.login)
 
 // 退出：logout
+router.post('/login',userHandler.logout)
 
 module.exports = router

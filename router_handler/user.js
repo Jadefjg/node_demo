@@ -7,8 +7,8 @@ const secretKey = "123456"
 // 用户注册处理函数
 exports.regUser = (req,res)=>{
     const data = req.body
-
     const sql = "select * from tb_users where username = ?"
+
     db.query(sql,data.username,(err,result)=>{
         if(err || result.length>0){
             return res.json({
@@ -33,7 +33,6 @@ exports.regUser = (req,res)=>{
         })
     })
 }
-
 
 
 // 用户登录处理函数
@@ -69,3 +68,19 @@ exports.login = (req,res)=>{
     })
 }
 
+
+// 用户退出处理
+exports.logout = (req,res)=>{
+    const data = req.body
+    const sql = "delete from db_users where username=?"
+
+    db.query(sql,data.username,(err,result)=>{
+        if(err || result.length > 0 ){
+            res.json({
+                code:200,
+                msg:"用户已经删除"
+            })
+        }
+    })
+
+}

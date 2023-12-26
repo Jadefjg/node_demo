@@ -2,6 +2,8 @@ const db = require('../db/index.js')
 
 const bcrypt = require('bcryptjs')
 
+
+// 获取用户信息
 exports.getUserInfo = (req,res)=>{
     const user = req.user
     const sql = "select id,username,nickname,email,user_pic from tb_users where username=?"
@@ -21,6 +23,7 @@ exports.getUserInfo = (req,res)=>{
     })
 }
 
+// 更新用户信息
 exports.updateUserInfo = (req,res)=>{
     const data = req.body
     const sql = "update tb_users set nickname=?,email=? where id=?"
@@ -38,6 +41,8 @@ exports.updateUserInfo = (req,res)=>{
     })
 }
 
+
+// 更改用户密码
 exports.updatepwd = (req,res)=>{
     const data = req.body
     const sql = "select*from tb_users where username=?"
@@ -73,6 +78,8 @@ exports.updatepwd = (req,res)=>{
     })
 }
 
+
+// 更新用户头像
 exports.updateAvatar = (req,res)=>{
     const data = req.body
     const sql = "update tb_users set user_pic = ? where username=?"
