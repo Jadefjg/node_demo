@@ -108,7 +108,4 @@ exports.updateById =(req,res)=>{
         })
 
     })
-
-    
-    
 }

@@ -1,6 +1,7 @@
-const db = require("../db/index.js")
 const bcrypt = require('bcryptjs')
 const jwt = require("jsonwebtoken")
+
+const db = require("../db/index.js")
 const secretKey = "123456"
 
 

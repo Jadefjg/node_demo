@@ -5,17 +5,12 @@ const expressJWT = require("express-jwt")
 const app = express()
 
 
-// 处理跨域请求
-app.use(cors())
+app.use(cors())     // 处理跨域请求
 
-// 解析数据
-app.use(express.json())      
+app.use(express.json())    // 解析数据  
 // app.use(express.urlencoded({extends:false}))
 
-
-//解析token
-app.use(expressJWT({secret:'123456'}).unless({path:[/^\/api\//]}))
-
+app.use(expressJWT({secret:'123456'}).unless({path:[/^\/api\//]}))      //解析token
 
 // 路由模块
 const userRouter = require("./router/user.js")

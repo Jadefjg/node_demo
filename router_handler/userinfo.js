@@ -1,7 +1,6 @@
-const db = require('../db/index.js')
-
 const bcrypt = require('bcryptjs')
 
+const db = require('../db/index.js')
 
 // 获取用户信息
 exports.getUserInfo = (req,res)=>{
