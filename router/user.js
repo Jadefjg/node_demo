@@ -8,6 +8,6 @@ const router = express.Router()
 
 router.post('/register',userHandler.regUser)
 router.post('/login',userHandler.login)
-router.post('/login',userHandler.logout)
+router.post('/logout',userHandler.logout)
 
 module.exports = router
