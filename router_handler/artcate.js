@@ -1,7 +1,7 @@
 const db = require('../db/index.js')
 
 exports.getCates = (req,res)=>{
-    const sql = "select*from tb_article_cate where is_delete=0 order by id asc"
+    const sql = "select*from tb_artcate where is_delete=0 order by id asc"
     db.query(sql,(err,result)=>{
         if(err||result.length==0){
             return res.json({
@@ -20,7 +20,7 @@ exports.getCates = (req,res)=>{
 exports.addCates = (req,res)=>{
     const data = req.body
 
-    const sql = "select*from tb_article_cate where name=? or alias = ?"
+    const sql = "select * from tb_artcate where name=? or nickname = ?"
 
     db.query(sql,[data.name,data.alias],(err,result)=>{
         if(err||result.length>0){
@@ -29,7 +29,7 @@ exports.addCates = (req,res)=>{
                 msg:"该分类已存在"
             })
         }
-        const sqlStr = "insert into tb_article_cate (name,alias,is_delete) values (?,?,?)"
+        const sqlStr = "insert into tb_artcate (name,nickname,is_delete) values (?,?,?)"
         db.query(sqlStr,[data.name,data.alias,data.is_delete],(err,result)=>{
             if(err||affectedRows.rows!==1){
                 return res.json({
@@ -42,14 +42,12 @@ exports.addCates = (req,res)=>{
                 msg:"新增文章分类成功"
             })
         })
-    })
-
-    
+    })   
 }
 
 exports.deleteCateById = (req,res)=>{
     const data =req.params
-    const sql = "update tb_article_cate set is_delete = 1 where id =?"
+    const sql = "update tb_artcate set is_delete = 1 where id =?"
     db.query(sql,data.id,(err,result)=>{
         if(err,result.affectedRows!==1){
             return res.json({
@@ -66,7 +64,7 @@ exports.deleteCateById = (req,res)=>{
 
 exports.getCateById = (req,res)=>{
     const data = req.params
-    const sql = "select*from tb_article_cate where id = ?"
+    const sql = "select*from tb_artcate where id = ?"
     db.query(sql,data.id,(err,result)=>{
         if(err||result.length!==1){
             return res.json({
@@ -84,7 +82,7 @@ exports.getCateById = (req,res)=>{
 
 exports.updateById =(req,res)=>{
     const data = req.body
-    const sql = "select*from tb_article_cate where name=? or alias = ?"
+    const sql = "select*from tb_artcate where name=? or alias = ?"
 
     db.query(sql,[data.name,data.alias],(err,result)=>{
         if(err||result.length>0){
@@ -93,7 +91,7 @@ exports.updateById =(req,res)=>{
                 msg:"该分类已存在"
             })
         }
-        const sqlStr = "update tb_article_cate set name = ?,alias = ? where id =?"
+        const sqlStr = "update tb_artcate set name = ?,alias = ? where id =?"
         db.query(sqlStr,[data.name,data.alias,req.params.id],(err,result)=>{
             if(err||result.affectedRows!==1){
                 return res.json({

@@ -2,9 +2,7 @@
 [https://github.com/Traderxue/node-demo/blob/main/app.js]
 
 
-
 # 1、环境：Node.js v18.14.2
-
 
 
 # 2、创建数据库表未完成node项目如何创建数据库表
